@@ -5,3 +5,8 @@ Route.get("/", async ({ view }) => {
 });
 
 Route.on("/news").render("news.view");
+
+Route.post("/news", ({ request, response }) => {
+  // const { email, password } = request.body();
+  return response.redirect("/news");
+});
