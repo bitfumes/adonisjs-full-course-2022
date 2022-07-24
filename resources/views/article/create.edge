@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Create Article</h1>
-    <form action="/news" method="POST">
+    <form action="{{route('news_store')}}" method="POST">
+        {{ csrfField() }}
         <input type="text" name="title" placeholder="Article Title">
         <input type="file" name="image" id="">
         <textarea name="content" id="" cols="30" rows="10" placeholder="Article Content"></textarea>

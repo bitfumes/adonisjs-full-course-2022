@@ -13,7 +13,7 @@ Route.post("/news", ({ request }) => {
   return request.body();
   // return response.redirect("/news");
   // return view.render("article.create");
-}).as("news.create");
+}).as("news_store");
 
 Route.patch("/news/:id", ({ params }) => {
   return { params };
