@@ -8,5 +8,10 @@
 </head>
 <body>
     <h1>Happy News</h1>
+
+    {{--  loop over all articles  --}}
+    @each(article in articles)
+        <h3>{{ article.title }}</h3>
+    @endeach
 </body>
 </html>
