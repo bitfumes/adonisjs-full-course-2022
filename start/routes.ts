@@ -6,9 +6,13 @@ Route.get("/", async ({ view }) => {
 
 Route.get("/news", "ArticlesController.view").as("news_view");
 
-Route.post("/news", ({ response }) => {
+Route.get("/news/create", "ArticlesController.create").as("news_create");
+
+Route.post("/news", ({ request }) => {
   // const { email, password } = request.body();
-  return response.redirect("/news");
+  return request.body();
+  // return response.redirect("/news");
+  // return view.render("article.create");
 }).as("news.create");
 
 Route.patch("/news/:id", ({ params }) => {
