@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AdonisJS - A fully featured web framework for Node.js</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
   <style>
     html, body {
       background-color: #F7F8FA;
@@ -83,7 +84,7 @@
   </style>
 </head>
 <body>
-
+@include('partials/navbar')
   <main>
     <div>
       <h1 class="title"> It Works again! </h1>
@@ -106,5 +107,6 @@
       </ul>
     </div>
   </main>
+  @include('partials/footer')
 </body>
 </html>

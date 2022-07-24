@@ -2,12 +2,13 @@
 
 @section('body')
 <div class="m-auto mt-5">
-    <form action="{{route('news_store')}}" method="POST" class="container col-lg-6">
-        <h1>Create Article</h1>
+    <form action="{{route('news_update',[article.slug])}}?_method=PATCH" method="POST" class="container col-lg-6">
+        <h1>Update this article</h1>
         {{ csrfField() }}
+
         <div class="mb-3">
             <label for="title" class="form-label">Article Title</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Article Title">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Article Title" value="{{article.title}}">
         </div>
         @if(flashMessages.has('errors.title'))
         <p class="alert alert-danger"> {{ flashMessages.get('errors.title') }} </p>
@@ -23,14 +24,14 @@
 
         <div class="mb-3">
             <label for="content" class="form-label">Write article here</label>
-            <textarea placeholder="Article Content" class="form-control" name="content" id="content" rows="3"></textarea>
+            <textarea placeholder="Article Content" class="form-control" name="content" id="content" rows="3">{{article.content}}</textarea>
         </div>
         @if(flashMessages.has('errors.content'))
             <p class="alert alert-danger"> {{ flashMessages.get('errors.content') }} </p>
         @end
 
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary mb-3 block flex">Create</button>
+            <button type="submit" class="btn btn-primary mb-3 block flex">Update</button>
         </div>
     </form>
 </div>

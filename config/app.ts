@@ -5,12 +5,12 @@
  * file.
  */
 
-import proxyAddr from 'proxy-addr'
-import Env from '@ioc:Adonis/Core/Env'
-import { ServerConfig } from '@ioc:Adonis/Core/Server'
-import { LoggerConfig } from '@ioc:Adonis/Core/Logger'
-import { ProfilerConfig } from '@ioc:Adonis/Core/Profiler'
-import { ValidatorConfig } from '@ioc:Adonis/Core/Validator'
+import Env from "@ioc:Adonis/Core/Env";
+import { LoggerConfig } from "@ioc:Adonis/Core/Logger";
+import { ProfilerConfig } from "@ioc:Adonis/Core/Profiler";
+import { ServerConfig } from "@ioc:Adonis/Core/Server";
+import { ValidatorConfig } from "@ioc:Adonis/Core/Validator";
+import proxyAddr from "proxy-addr";
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ import { ValidatorConfig } from '@ioc:Adonis/Core/Validator'
 | be decrypted.
 |
 */
-export const appKey: string = Env.get('APP_KEY')
+export const appKey: string = Env.get("APP_KEY");
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ export const http: ServerConfig = {
   | so on.
   |
   */
-  allowMethodSpoofing: false,
+  allowMethodSpoofing: true,
 
   /*
   |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ export const http: ServerConfig = {
   | headers.
   |
   */
-  trustProxy: proxyAddr.compile('loopback'),
+  trustProxy: proxyAddr.compile("loopback"),
 
   /*
   |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ export const http: ServerConfig = {
   | JSONP Callback
   |--------------------------------------------------------------------------
   */
-  jsonpCallbackName: 'callback',
+  jsonpCallbackName: "callback",
 
   /*
   |--------------------------------------------------------------------------
@@ -102,14 +102,14 @@ export const http: ServerConfig = {
   |--------------------------------------------------------------------------
   */
   cookie: {
-    domain: '',
-    path: '/',
-    maxAge: '2h',
+    domain: "",
+    path: "/",
+    maxAge: "2h",
     httpOnly: true,
     secure: false,
     sameSite: false,
   },
-}
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -129,7 +129,7 @@ export const logger: LoggerConfig = {
   | reading the `name` property from the `package.json` file.
   |
   */
-  name: Env.get('APP_NAME'),
+  name: Env.get("APP_NAME"),
 
   /*
   |--------------------------------------------------------------------------
@@ -151,7 +151,7 @@ export const logger: LoggerConfig = {
   | at deployment level and not code level.
   |
   */
-  level: Env.get('LOG_LEVEL', 'info'),
+  level: Env.get("LOG_LEVEL", "info"),
 
   /*
   |--------------------------------------------------------------------------
@@ -162,8 +162,8 @@ export const logger: LoggerConfig = {
   | can have huge impact on performance.
   |
   */
-  prettyPrint: Env.get('NODE_ENV') === 'development',
-}
+  prettyPrint: Env.get("NODE_ENV") === "development",
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -202,7 +202,7 @@ export const profiler: ProfilerConfig = {
   |
   */
   whitelist: [],
-}
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -213,5 +213,4 @@ export const profiler: ProfilerConfig = {
 | to the default config https://git.io/JT0WE
 |
 */
-export const validator: ValidatorConfig = {
-}
+export const validator: ValidatorConfig = {};
