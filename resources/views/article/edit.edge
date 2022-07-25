@@ -2,7 +2,7 @@
 
 @section('body')
 <div class="m-auto mt-5">
-    <form action="{{route('news_update',[article.slug])}}?_method=PATCH" method="POST" class="container col-lg-6">
+    <form action="{{route('news.update',[article.slug])}}?_method=PATCH" method="POST" class="container col-lg-6">
         <h1>Update this article</h1>
         {{ csrfField() }}
 
