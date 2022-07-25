@@ -34,4 +34,9 @@ export default class ArticlesController {
     await Database.from("articles").where("slug", params.slug).update(payload);
     return response.redirect().back();
   }
+
+  public async destroy({ params, response }) {
+    await Database.from("articles").where("slug", params.slug).delete();
+    return response.redirect().back();
+  }
 }
