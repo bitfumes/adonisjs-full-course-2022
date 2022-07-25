@@ -8,17 +8,23 @@
         All News
       </a>
       @if(auth.isLoggedIn)
-      <a href="{{route('auth.login')}}" class="navbar-brand d-flex align-items-center">
-        Logout
-      </a>
+      <form action="{{route('auth.logout')}}" method="POST">
+        {{csrfField()}}
+        <button type="submit" class="navbar-brand d-flex align-items-center link">
+          Logout
+        </button>
+      </form>
       @else
       <a href="{{route('auth.login')}}" class="navbar-brand d-flex align-items-center">
         Login
       </a>
       @end
+
+      @if(auth.isLoggedIn)
       <a href="{{route('news.create')}}" class="navbar-brand d-flex align-items-center">
         Create
       </a>
+      @end
     </div>
   </div>
 </header>
