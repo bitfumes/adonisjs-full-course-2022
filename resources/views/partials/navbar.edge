@@ -7,6 +7,15 @@
       <a href="{{route('news.index')}}" class="navbar-brand d-flex align-items-center">
         All News
       </a>
+      @if(auth.isLoggedIn)
+      <a href="{{route('auth.login')}}" class="navbar-brand d-flex align-items-center">
+        Logout
+      </a>
+      @else
+      <a href="{{route('auth.login')}}" class="navbar-brand d-flex align-items-center">
+        Login
+      </a>
+      @end
       <a href="{{route('news.create')}}" class="navbar-brand d-flex align-items-center">
         Create
       </a>
