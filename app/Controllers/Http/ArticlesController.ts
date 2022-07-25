@@ -1,5 +1,6 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
+import Application from "@ioc:Adonis/Core/Application";
 import Article from "App/Models/Article";
 import CreateArticleValidator from "App/Validators/CreateArticleValidator";
 
@@ -20,6 +21,8 @@ export default class ArticlesController {
 
   public async store({ response, request }) {
     const payload = await request.validate(CreateArticleValidator);
+    await payload.image.move(Application.publicPath("images"));
+    payload.image = payload.image.fileName;
     await Article.create(payload);
 
     return response.redirect().back();
@@ -32,6 +35,9 @@ export default class ArticlesController {
 
   public async update({ request, response, params }) {
     const payload = await request.validate(CreateArticleValidator);
+    await payload.image.move(Application.publicPath("images"));
+    payload.image = payload.image.fileName;
+
     await Article.query().where("slug", params.slug).update(payload);
     return response.redirect().back();
   }

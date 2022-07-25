@@ -2,7 +2,7 @@
 
 @section('body')
 <div class="m-auto mt-5">
-    <form action="{{route('news.store')}}" method="POST" class="container col-lg-6">
+    <form action="{{route('news.store')}}" method="POST" class="container col-lg-6" enctype="multipart/form-data">
         <h1>Create Article</h1>
         {{ csrfField() }}
         <div class="mb-3">
@@ -15,7 +15,7 @@
 
         <div class="input-group mb-3">
             <label class="input-group-text" for="image">Upload</label>
-            <input type="file"  class="form-control" id="image" />
+            <input type="file" name="image"  class="form-control" id="image" />
         </div>
         @if(flashMessages.has('errors.image'))
         <p class="alert alert-danger"> {{ flashMessages.get('errors.image') }} </p>
